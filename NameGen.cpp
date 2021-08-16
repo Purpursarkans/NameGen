@@ -2,5 +2,5 @@
 
 int main()
 {
-    std::cout << "NameGen test" << std::endl;
+    std::cout << "NameGen test 1" << std::endl;
 }
