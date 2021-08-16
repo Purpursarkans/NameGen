@@ -2,5 +2,6 @@
 
 int main()
 {
-    std::cout << "NameGen test 1" << std::endl;
+    std::cout << "NameGen" << std::endl;
+    system("pause");
 }
