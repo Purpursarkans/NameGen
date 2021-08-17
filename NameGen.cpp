@@ -1,16 +1,13 @@
 #include "Head.hpp"
 
-void pause()
-{
-    #ifdef PWIN
-        system("pause");
-    #elif PLIN
-        system("read -n1 -r -p \"Press any key to continue...\" key");
-    #endif
-}
-
 int main()
 {
+
+    std::map <std::string, std::string> name;
+
+    int num = 0;
+    std::cout << "input ";
+
     char* mask[] = {"kakao","kakar","kakakao"};
 
     char* group[] = {"a", "q w e"};
