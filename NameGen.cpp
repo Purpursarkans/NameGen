@@ -6,6 +6,7 @@
 
 int main()
 {
+    std::srand(time(NULL));
     std::cout << "NameGen " << version << std::endl;
 
     std::map <char, std::string> groups;
@@ -74,14 +75,12 @@ int main()
         groupsVector.insert(std::pair<char, std::vector<std::string>>(tempChar, tempVector));
     }
 
-    std::cout << "---------" << std::endl;
-
-
     for (std::map<char, std::vector<std::string>>::iterator it = groupsVector.begin(); it != groupsVector.end(); it++)
     {
         std::reverse(it->second.begin(), it->second.end());
     }
 
+    std::cout << "-------------" << std:: endl;
 
     std::cout << "Group(s) is: " << std:: endl;
 
@@ -101,15 +100,43 @@ int main()
     {
         std::cout << ">>> " << it << std::endl;
     }
+    std::cout << "-------------" << std:: endl;
+    //------------------------------------------            Выбираем рандомную маску
+    
+    for(int i = 0; i < 8; i++)
+    {
+    int randMask = rand() % masks.size();
+    std::string randVecMask = masks[randMask];
+    //------------------------------------------
 
-    std::cout << "";
+    std::string result = randVecMask;
 
+    for (int i = 0; i < result.length(); i++)
+    {
+
+        int randGroupsVector = rand() % groupsVector.size();
+        std::map<char, std::vector<std::string>>::iterator groupsVectorMapI = groupsVector.begin();
+        std::advance(groupsVectorMapI, randGroupsVector);
+        char groupsChar = groupsVectorMapI->first;
+        std::vector<std::string>::iterator groupsVectorStr = groupsVectorMapI->second.begin();
+        int sizeVec = groupsVectorMapI->second.size();
+        int randVec = rand() % sizeVec;
+        std::string randVecGroup = groupsVectorStr[randVec];
+
+        if(groupsChar == result[i])
+        {
+            result.erase(i, 1);
+            result.insert(i, randVecGroup);
+        }
+    }
+    
+    std::cout << "final: " << result << std::endl;
+    }
     for(const std::string &it: masks)
     {
         std::string temp = it;
     }
 
 
-    //std::cout << "Platform is - " << PLATFORM << std::endl;
     pause();
 }
