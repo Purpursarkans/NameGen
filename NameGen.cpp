@@ -50,6 +50,7 @@ int main()
 
     std::map<char, std::vector<std::string>> groupsVector;
 
+
     for (std::map<char, std::string>::iterator it = groups.begin(); it != groups.end(); it++)
     {
         char tempChar = it->first;
@@ -80,6 +81,13 @@ int main()
         std::reverse(it->second.begin(), it->second.end());
     }
 
+    auto gg = groupsVector.find('a');
+
+    for(const std::string &it: gg->second)
+    {
+        std::cout << it << std::endl;
+    }
+
     std::cout << "-------------" << std:: endl;
 
     std::cout << "Group(s) is: " << std:: endl;
@@ -101,7 +109,7 @@ int main()
         std::cout << ">>> " << it << std::endl;
     }
     std::cout << "-------------" << std:: endl;
-    
+
     //------------------------------------------            Выбираем рандомную маску
     for(int i = 0; i < 8; i++)
     {
