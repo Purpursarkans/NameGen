@@ -29,13 +29,6 @@ int main()
         groups.insert(std::pair<char,std::string>(tempChar, tempString));
     }
 
-    std::cout << "Groups is: " << std:: endl;
-
-    for (std::map<char, std::string>::iterator it = groups.begin(); it != groups.end(); it++)
-    {
-        std::cout << ">>> " << it->first << ": " << it->second << std::endl;
-    }
-
     int numMask = 0;
     std::cout << "input num of mask: ";
     std::cin >> numMask;
@@ -52,19 +45,7 @@ int main()
         masks.push_back(tempString);
     }
 
-    std::cout << "Masks is: " << std:: endl;
-
-    for(auto const &it: masks)
-    {
-        std::cout << ">>> " << it << std::endl;
-    }
-
-
-
-    // std::map<char, std::string>::iterator git = groups.begin();
-    // advance(git, 1);
-    // std::cout << "groups[1] - " << git->first << ": " << git->second.size() << std::endl;
-    // std::cout << "masks[1] - " << masks[1] << std::endl;
+    
 
     std::map<char, std::vector<std::string>> groupsVector;
 
@@ -95,16 +76,37 @@ int main()
 
     std::cout << "---------" << std::endl;
 
-    //std::reverse(groupsVector.begin(), groupsVector.end());
+
+    for (std::map<char, std::vector<std::string>>::iterator it = groupsVector.begin(); it != groupsVector.end(); it++)
+    {
+        std::reverse(it->second.begin(), it->second.end());
+    }
+
+
+    std::cout << "Group(s) is: " << std:: endl;
 
     for(const std::pair<char, std::vector<std::string>> &it: groupsVector)
     {
         std::cout << it.first << ": ";
-        for(const auto &iit: it.second)
+        for(const std::string &iit: it.second)
         {
             std::cout << iit << "-";
-        }
+        }       
         std::cout << std::endl;
+    }
+
+    std::cout << "Mask(s) is: " << std:: endl;
+
+    for(const std::string &it: masks)
+    {
+        std::cout << ">>> " << it << std::endl;
+    }
+
+    std::cout << "";
+
+    for(const std::string &it: masks)
+    {
+        std::string temp = it;
     }
 
 
