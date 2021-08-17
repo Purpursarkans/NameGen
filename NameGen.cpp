@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 
 #define PLATFORM "UNKNOWN"
-
 #ifdef _WIN64
         #define PLATFORM "WINDOWS"
         #define PWIN 1
