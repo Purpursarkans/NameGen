@@ -31,7 +31,7 @@ int main()
 
     std::cout << "Groups is: " << std:: endl;
 
-    for (std::map<char, std::string>::iterator it = groups.begin(); it != groups.end(); it++)///вывод на экран
+    for (std::map<char, std::string>::iterator it = groups.begin(); it != groups.end(); it++)
     {
         std::cout << ">>> " << it->first << ": " << it->second << std::endl;
     }
@@ -60,9 +60,54 @@ int main()
     }
 
 
-    
+
+    // std::map<char, std::string>::iterator git = groups.begin();
+    // advance(git, 1);
+    // std::cout << "groups[1] - " << git->first << ": " << git->second.size() << std::endl;
+    // std::cout << "masks[1] - " << masks[1] << std::endl;
+
+    std::map<char, std::vector<std::string>> groupsVector;
+
+    for (std::map<char, std::string>::iterator it = groups.begin(); it != groups.end(); it++)
+    {
+        char tempChar = it->first;
+        std::vector<std::string> tempVector;
+        std::string tempString;
+
+        tempString = it->second;
+        for(;!tempString.empty();)
+        {
+            std::string str = tempString.substr(tempString.find_last_of(' ') + 1);
+            tempVector.push_back(tempString.substr(tempString.find_last_of(' ') + 1));
+            if(tempString == str)
+            {
+                tempString = tempString.erase(tempString.size()-str.size());
+            }
+            else
+            {
+                tempString = tempString.erase(tempString.size()-str.size()-1);
+            }
+        }
+        
+
+        groupsVector.insert(std::pair<char, std::vector<std::string>>(tempChar, tempVector));
+    }
+
+    std::cout << "---------" << std::endl;
+
+    //std::reverse(groupsVector.begin(), groupsVector.end());
+
+    for(const std::pair<char, std::vector<std::string>> &it: groupsVector)
+    {
+        std::cout << it.first << ": ";
+        for(const auto &iit: it.second)
+        {
+            std::cout << iit << "-";
+        }
+        std::cout << std::endl;
+    }
 
 
-    std::cout << "Platform is - " << PLATFORM << std::endl;
+    //std::cout << "Platform is - " << PLATFORM << std::endl;
     pause();
 }
