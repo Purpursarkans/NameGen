@@ -115,9 +115,9 @@ int main()
 
         std::string result = randVecMask;
         
-        for(int i = 0; i < randVecMask.length(); i++)
+        for(int i = 0; i < result.length();)
         {
-            char temp = randVecMask[i];
+            char temp = result[i];
             std::map<char, std::vector<std::string>>::iterator cc = groupsVector.find(temp);
             int razmer = 0;
 
@@ -137,10 +137,16 @@ int main()
                 std::string tempString = cc->second[randChar];
                 if(i == 0)
                 {
-                    tempString = (char)std::toupper(tempString[0]);
+                    char TC = (char)std::toupper(tempString[0]);
+                    std::string TCS(1, TC);
+                    //tempString = (char)std::toupper(tempString[0]);
+
+                    tempString.erase(0, 1);
+                    tempString.insert(0, TCS);
                 }
                 result.erase(i, 1);
                 result.insert(i, tempString);
+                i+= tempString.size();
             }
         }
 
