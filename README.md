@@ -4,41 +4,39 @@
 
 ### Как пользоваться?
 
-Программа сама говорит, что нужно вводить (вводить необходимо без кавычек):
-
+Нужно ввести кол-во имен, которые вы хотите что бы сгенерировались, например "8"
 > Enter num of random name: 8
 
-Нужно ввести кол-во имен, которые вы хотите что бы сгенерировались, например "8"
-
-> Input num of groups: 2
 
 Нужно ввести кол-во групп, которые вы хотите ввести, например "2"
+> Input num of groups: 2
 
-> Enter char group: a
 
 Необходимо ввести символ который будет заменяться, например "a"
+> Enter char group: a
 
-> Enter chars you want to replace (through a space): o i a e
 
 Необходимо ввести символы на которые будет заменяться символ из предыдущего шага, например "o i a e"
+> Enter chars you want to replace (through a space): o i a e
 
-> Enter char group: k
 
 Необходимо ввести другой символ который будет заменяться, например "k"
+> Enter char group: k
 
-> Enter chars you want to replace (through a space): r t p s d f g k l c v b n m
 
 Необходимо ввести символы на которые будет заменяться символ из предыдущего шага, например "r t p s d f g k l c v b n m"
+> Enter chars you want to replace (through a space): r t p s d f g k l c v b n m
 
-> Input num of mask: 1
 
 Необходимо ввести кол-во масок, например "1"
+> Input num of mask: 1
 
-> Enter mask: kaka
 
 Необходимо ввести маску, которая будет заменяться на символы групп, например "kaka"
+> Enter mask: kaka
 
-Программа выведет данные которые мы ввели, А так же рандомные имена
+
+Программа выведет данные которые мы ввели, а так же рандомные имена
 
 Group(s) is:  
 a: o-i-a-e-  
