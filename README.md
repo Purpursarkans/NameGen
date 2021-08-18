@@ -9,8 +9,7 @@
 > Enter num of random name: 8  
 
 Нужно ввести кол-во групп, которые вы хотите ввести, например, у нас есть 2 группы:   
-##### a: o i a e   
-##### k: r t p s d f g k l c v b n m  
+##### a: o i a e  k: r t p s d f g k l c v b n m  
 Необходимо ввести 2  
 > Input num of groups: 2
 >
