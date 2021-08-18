@@ -1,13 +1,15 @@
 #include "Head.hpp"
 
-#define version "ver 1.0"
-
 #define cinclear std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n')
 
 int main()
 {
     std::srand(time(NULL));
-    std::cout << "NameGen " << version << std::endl;
+
+    std::cout << "Enter num of random name: ";
+    int numOfRandomName;
+    std::cin >> numOfRandomName;
+
 
     std::map <char, std::string> groups;
 
@@ -81,13 +83,6 @@ int main()
         std::reverse(it->second.begin(), it->second.end());
     }
 
-    auto gg = groupsVector.find('a');
-
-    for(const std::string &it: gg->second)
-    {
-        std::cout << it << std::endl;
-    }
-
     std::cout << "-------------" << std:: endl;
 
     std::cout << "Group(s) is: " << std:: endl;
@@ -110,41 +105,48 @@ int main()
     }
     std::cout << "-------------" << std:: endl;
 
-    //------------------------------------------            Выбираем рандомную маску
-    for(int i = 0; i < 8; i++)
+    //------------------------------------------            Кол-во рандомных имен
+    for(int i = 0; i < numOfRandomName; i++)
     {
-    int randMask = rand() % masks.size();
-    std::string randVecMask = masks[randMask];
-    //------------------------------------------
+        //------------------------------------------            Выбираем рандомную маску
+        int randMask = rand() % masks.size();
+        std::string randVecMask = masks[randMask];
+        //------------------------------------------
 
-    std::string result = randVecMask;
-
-    for (int i = 0; i < result.length(); i++)
-    {
-
-        int randGroupsVector = rand() % groupsVector.size();
-        std::map<char, std::vector<std::string>>::iterator groupsVectorMapI = groupsVector.begin();
-        std::advance(groupsVectorMapI, randGroupsVector);
-        char groupsChar = groupsVectorMapI->first;
-        std::vector<std::string>::iterator groupsVectorStr = groupsVectorMapI->second.begin();
-        int sizeVec = groupsVectorMapI->second.size();
-        int randVec = rand() % sizeVec;
-        std::string randVecGroup = groupsVectorStr[randVec];
-
-        if(groupsChar == result[i])
+        std::string result = randVecMask;
+        
+        for(int i = 0; i < randVecMask.length(); i++)
         {
-            result.erase(i, 1);
-            result.insert(i, randVecGroup);
-        }
-    }
-    
-    std::cout << "final: " << result << std::endl;
-    }
-    for(const std::string &it: masks)
-    {
-        std::string temp = it;
-    }
+            char temp = randVecMask[i];
+            std::map<char, std::vector<std::string>>::iterator cc = groupsVector.find(temp);
+            int razmer = 0;
 
+            for(std::map<char, std::vector<std::string>>::iterator it = groupsVector.begin(); it != groupsVector.end(); it++)
+            {
+                if(temp == it->first)
+                {
+                    razmer = cc->second.size();
+                }
+            }
+
+            int randChar = 0;
+
+            if(razmer > 0) 
+            {
+                randChar = rand() % razmer;
+                std::string tempString = cc->second[randChar];
+                if(i == 0)
+                {
+                    tempString = (char)std::toupper(tempString[0]);
+                }
+                result.erase(i, 1);
+                result.insert(i, tempString);
+            }
+        }
+
+
+        std::cout << "final: " << result << std::endl;
+    }
 
     pause();
 }
