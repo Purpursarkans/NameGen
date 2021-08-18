@@ -24,9 +24,9 @@ int main()
 
         std::cout << "enter char group: ";
         std::cin >> tempChar;
+        cinclear;
 
         std::cout << "enter chars you want to replace (through a space): ";
-        cinclear;
         std::getline(std::cin, tempString);
 
         groups.insert(std::pair<char,std::string>(tempChar, tempString));
@@ -35,6 +35,7 @@ int main()
     int numMask = 0;
     std::cout << "input num of mask: ";
     std::cin >> numMask;
+    cinclear;
 
     std::vector<std::string> masks;
 
@@ -43,7 +44,6 @@ int main()
         std::string tempString;
         
         std::cout << "enter mask: ";
-        cinclear;
         std::getline(std::cin, tempString);
         masks.push_back(tempString);
     }
@@ -104,7 +104,7 @@ int main()
         std::cout << ">>> " << it << std::endl;
     }
     std::cout << "-------------" << std:: endl;
-
+    std::cout << "Random name:" << std:: endl;
     //------------------------------------------            Кол-во рандомных имен
     for(int i = 0; i < numOfRandomName; i++)
     {
@@ -145,7 +145,7 @@ int main()
         }
 
 
-        std::cout << "final: " << result << std::endl;
+        std::cout << result << std::endl;
     }
 
     pause();
