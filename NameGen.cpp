@@ -10,7 +10,6 @@ int main()
     int numOfRandomName;
     std::cin >> numOfRandomName;
 
-
     std::map <char, std::string> groups;
 
     int numGroups = 0;
