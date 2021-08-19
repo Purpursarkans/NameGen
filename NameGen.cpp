@@ -82,9 +82,9 @@ int main()
         std::reverse(it->second.begin(), it->second.end());
     }
 
-    std::cout << "-------------" << std:: endl;
+    std::cout << std::endl << "-------------" << std::endl;
 
-    std::cout << "Group(s) is: " << std:: endl;
+    std::cout << "Group(s) is: " << std::endl;
 
     for(const std::pair<char, std::vector<std::string>> &it: groupsVector)
     {
