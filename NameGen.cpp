@@ -147,6 +147,11 @@ int main()
                 result.insert(i, tempString);
                 i+= tempString.size();
             }
+            else
+            {
+                i++;
+            }
+            
         }
 
 
