@@ -18,7 +18,7 @@
         #ifdef PWIN
             system("pause");
         #elif PLIN
-            system("read -n1 -r -p \"Press any key to continue...\" key");
+            system("read -n1 -r -p \"Press any key to continue...\" key; echo -e \"\n\"");
         #endif
     }
 
